@@ -1,0 +1,127 @@
+﻿@model IEnumerable<sqa.Models.tbvanbantheodonvi>
+<link href="~/Content/style.css" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h3>Kho dữ liệu của đơn vị</h3>
+<hr />
+<p>
+    @using (Html.BeginForm("Index", "tbvanbantheodonvis/index", FormMethod.Get, new { @class = "form-inline" }))
+    {
+        <div class="form-group" id="article">
+            <div>
+                <label>Phòng ban:</label> @Html.DropDownList("id", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+            <div>
+                <label>Tên văn bản: </label>
+                <input type="Text" class="form-control mx-sm-3" value="@ViewBag.Keyword" name="searchString" placeholder="Nhập tên văn bản cần tìm">
+            </div>
+            <div>
+                <input type="submit" class="btn btn-danger" value="Tìm văn bản">
+                @Html.ActionLink("Thêm văn bản", "Create", null, new { @class = "btn btn-warning" })
+            </div>
+        </div>
+    }
+    <!-- Kết thúc -->
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.soquyetdinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tenvanban)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.noibanhanh)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.mota)
+            </th>*@
+        <th>
+            @*@Html.DisplayNameFor(model => model.fileattach1)*@
+            File
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.fileattach2)
+            </th>*@
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.soquyetdinh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tenvanban)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.noibanhanh)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.mota)
+                </td>*@
+            <td>
+                @*@Html.DisplayFor(modelItem => item.fileattach1)*@
+                @{
+                    string str1 = "";
+                    if (item.fileattach1 != null)
+                    {
+                        str1 = item.fileattach1;
+                        int startIndex = 6;
+                        if (str1.Length > 7)
+                        {
+                            int endIndex = str1.Length - 6;
+                            str1 = str1.Substring(startIndex, endIndex);
+                        }
+                    }
+                    else
+                    {
+                        str1 = "";
+                    }
+
+                    string str2 = "";
+                    if (item.fileattach2 != null)
+                    {
+                        str2 = item.fileattach2;
+                        int startIndex = 6;
+                        if (str2.Length > 7)
+                        {
+                            int endIndex = str2.Length - 6;
+                            str2 = str2.Substring(startIndex, endIndex);
+                        }
+                    }
+                    else
+                    {
+                        str2 = "";
+                    }
+                }
+                <a data-fancybox data-type="iframe" data-src="/Uploads/@item.fileattach1" href="javascript:0;" 
+                data-options='{"type" : "iframe", "iframe" : {"preload" : false, "css" : {"width" : "1440px", "height" : "768px"}}}'>
+                    @str1
+                </a>
+                <br>
+                <a data-fancybox data-type="iframe" data-src="/Uploads/@item.fileattach2" href="javascript:0;">@str2</a>
+
+            </td>
+            <!--<td>-->
+            @*@Html.DisplayFor(modelItem => item.fileattach2)*@
+            <!--<a href="~/Uploads/@item.fileattach2"><img src="~/Icons/download-pdf.png" width="20" /></a>
+            </td>-->
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
+
+</table>

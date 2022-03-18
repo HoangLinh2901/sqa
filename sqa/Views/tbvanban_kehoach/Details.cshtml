@@ -1,0 +1,74 @@
+﻿@model sqa.Models.tbvanban_kehoach
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tbvanban_kehoach</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.loaivanban)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.loaivanban)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sovanban)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sovanban)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tenvanban)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tenvanban)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.noibanhanh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.noibanhanh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nguoinhap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nguoinhap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ngaynhap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ngaynhap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ghihu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ghihu)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

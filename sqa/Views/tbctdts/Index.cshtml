@@ -1,0 +1,57 @@
+﻿@model IEnumerable<sqa.Models.tbctdt>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.mactdt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tenctdt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.khoaquanly)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.filectdt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ghichu)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.mactdt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tenctdt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.khoaquanly)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.filectdt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ghichu)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

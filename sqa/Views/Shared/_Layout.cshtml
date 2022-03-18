@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - SQA Hunre</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            @*<div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("SQA Hunre", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>*@
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Trang chủ", "Index", "home")</li>
+                    <li>
+                        <a data-toggle="dropdown" href="#">Kiểm định trường  <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="@Url.Action("index","tbvanban_kehoach")">Văn bản-Kế hoạch</a></li>
+                            <li role="presentation" class="divider"></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="@Url.Action("index","tbminhchungs")">Cập nhật minh chứng</a></li>
+                            <li role="presentation" class="divider"></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Kho dữ liệu đánh giá trường</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a data-toggle="dropdown" href="#">Kiểm định CTĐT  <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="@Url.Action("index","tbvanban_kehoach")">Văn bản-Kế hoạch</a></li>
+                            <li role="presentation" class="divider"></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Cập nhật minh chứng</a></li>
+                            <li role="presentation" class="divider"></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Kho dữ liệu đánh giá CTĐT</a></li>
+                        </ul>
+                    </li>
+                    <li>@Html.ActionLink("Kho dữ liệu của các đơn vị", "Index", "tbvanbantheodonvis")</li>
+                    <li>
+                        <a data-toggle="dropdown" href="#">Danh mục <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="@Url.Action("index","tbctdts")">DM các chương trình đào tạo</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="@Url.Action("index","tbphongbans")">DM các đơn vị trong trường</a></li>
+                            <li role="presentation" class="divider"></li>
+                            <li role="presentation" class="divider"></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">DM các tiêu chuẩn đánh giá trường</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">DM các tiêu chí đánh giá trường</a></li>
+                            <li role="presentation" class="divider"></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">DM các tiêu chuẩn đánh giá CTĐT</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">DM các tiêu chí đánh giá CTĐT</a></li>
+                            <li role="presentation" class="divider"></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="@Url.Action("index","tbnamhocs")">Năm học</a></li>
+                        </ul>
+                    <li>
+                        <a data-toggle="dropdown" href="#">Giới thiệu  <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="@Url.Action("about","home")">Giới thiệu</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="@Url.Action("contact","home")">Liên hệ</a></li>
+                            <li role="presentation" class="divider"></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="@Url.Action("uploadfile","upload")">Test</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - SQA - Hunre</p>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

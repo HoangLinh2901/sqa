@@ -1,0 +1,66 @@
+﻿@model sqa.Models.tbvanbantheodonvi
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tbvanbantheodonvi</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tenvanban)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tenvanban)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.soquyetdinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.soquyetdinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.noibanhanh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.noibanhanh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mota)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mota)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fileattach1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fileattach1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fileattach2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fileattach2)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

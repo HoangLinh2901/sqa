@@ -1,0 +1,64 @@
+﻿@model sqa.Models.tbctdt
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>tbctdt</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.mactdt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mactdt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tenctdt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tenctdt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.khoaquanly)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.khoaquanly)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.filectdt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.filectdt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ghichu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ghichu)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

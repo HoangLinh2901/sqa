@@ -1,0 +1,80 @@
+﻿@model sqa.Models.tbvanban_kehoach
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>tbvanban_kehoach</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.loaivanban)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.loaivanban)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sovanban)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sovanban)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tenvanban)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tenvanban)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.noibanhanh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.noibanhanh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nguoinhap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nguoinhap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ngaynhap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ngaynhap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ghihu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ghihu)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

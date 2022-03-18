@@ -1,0 +1,475 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SQAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tbctdt">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="mactdt" Type="nvarchar" MaxLength="50" />
+          <Property Name="tenctdt" Type="ntext" />
+          <Property Name="khoaquanly" Type="ntext" />
+          <Property Name="filectdt" Type="ntext" />
+          <Property Name="ghichu" Type="ntext" />
+        </EntityType>
+        <EntityType Name="tblProducts">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProductDesc" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProductImage" Type="nvarchar" MaxLength="100" />
+          <Property Name="OnDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbminhchung">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tieuchi" Type="int" />
+          <Property Name="maminhchung" Type="nvarchar" MaxLength="30" />
+          <Property Name="tenminhchung" Type="ntext" />
+        </EntityType>
+        <EntityType Name="tbminhchungchitiet">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="minhchung" Type="int" />
+          <Property Name="tenvanban" Type="nvarchar" MaxLength="50" />
+          <Property Name="motavanban" Type="ntext" />
+          <Property Name="file_vanban" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbnamhoc">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="namhoc" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbphongban">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tenphongban" Type="nvarchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="tbtieuchi">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tieuchuan" Type="int" />
+          <Property Name="sotieuchi" Type="int" />
+          <Property Name="tentieuchi" Type="ntext" />
+        </EntityType>
+        <EntityType Name="tbtieuchuan">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sotieuchuan" Type="int" />
+          <Property Name="tentieuchuan" Type="ntext" />
+        </EntityType>
+        <EntityType Name="tbvanban_kehoach">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="loaivanban" Type="int" />
+          <Property Name="sovanban" Type="nvarchar" MaxLength="50" />
+          <Property Name="tenvanban" Type="ntext" />
+          <Property Name="noibanhanh" Type="ntext" />
+          <Property Name="nguoinhap" Type="nvarchar" MaxLength="50" />
+          <Property Name="ngaynhap" Type="datetime" />
+          <Property Name="file_vanban" Type="ntext" />
+          <Property Name="ghihu" Type="ntext" />
+        </EntityType>
+        <EntityType Name="tbvanbantheodonvi">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="maphongban" Type="int" />
+          <Property Name="soquyetdinh" Type="nvarchar" MaxLength="500" />
+          <Property Name="tenvanban" Type="nvarchar" MaxLength="4000" />
+          <Property Name="noibanhanh" Type="nvarchar" MaxLength="4000" />
+          <Property Name="mota" Type="nvarchar" MaxLength="4000" />
+          <Property Name="fileattach1" Type="nvarchar" MaxLength="1000" />
+          <Property Name="fileattach2" Type="nvarchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="tbvanbantheolinhvuc">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tenvanban" Type="ntext" />
+          <Property Name="soquyetdinh" Type="nvarchar" MaxLength="50" />
+          <Property Name="noibanhanh" Type="nvarchar" MaxLength="50" />
+          <Property Name="mota" Type="ntext" />
+          <Property Name="fileattach1" Type="nvarchar" MaxLength="50" />
+          <Property Name="fileattach2" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_tbvanbantheodonvi_tbphongban">
+          <End Role="tbphongban" Type="Self.tbphongban" Multiplicity="0..1" />
+          <End Role="tbvanbantheodonvi" Type="Self.tbvanbantheodonvi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbphongban">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbvanbantheodonvi">
+              <PropertyRef Name="maphongban" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SQAModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbctdt" EntityType="Self.tbctdt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblProducts" EntityType="Self.tblProducts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbminhchung" EntityType="Self.tbminhchung" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbminhchungchitiet" EntityType="Self.tbminhchungchitiet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbnamhoc" EntityType="Self.tbnamhoc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbphongban" EntityType="Self.tbphongban" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbtieuchi" EntityType="Self.tbtieuchi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbtieuchuan" EntityType="Self.tbtieuchuan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbvanban_kehoach" EntityType="Self.tbvanban_kehoach" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbvanbantheodonvi" EntityType="Self.tbvanbantheodonvi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbvanbantheolinhvuc" EntityType="Self.tbvanbantheolinhvuc" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tbvanbantheodonvi_tbphongban" Association="Self.FK_tbvanbantheodonvi_tbphongban">
+            <End Role="tbphongban" EntitySet="tbphongban" />
+            <End Role="tbvanbantheodonvi" EntitySet="tbvanbantheodonvi" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SQAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblProducts">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProductDesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProductImage" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="OnDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tbminhchung">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tieuchi" Type="Int32" />
+          <Property Name="maminhchung" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="tenminhchung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbminhchungchitiet">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="minhchung" Type="Int32" />
+          <Property Name="tenvanban" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="motavanban" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="file_vanban" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbtieuchi">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tieuchuan" Type="Int32" />
+          <Property Name="sotieuchi" Type="Int32" />
+          <Property Name="tentieuchi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbtieuchuan">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sotieuchuan" Type="Int32" />
+          <Property Name="tentieuchuan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbvanbantheodonvi">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tenvanban" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="soquyetdinh" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="noibanhanh" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="mota" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="fileattach1" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="fileattach2" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="maphongban" Type="Int32" />
+          <NavigationProperty Name="tbphongban" Relationship="SQAModel.FK_tbvanbantheodonvi_tbphongban" FromRole="tbvanbantheodonvi" ToRole="tbphongban" />
+        </EntityType>
+        <EntityType Name="tbvanbantheolinhvuc">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tenvanban" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="soquyetdinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="noibanhanh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fileattach1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fileattach2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="SQAEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblProducts" EntityType="Self.tblProducts" />
+          <EntitySet Name="tbminhchung" EntityType="Self.tbminhchung" />
+          <EntitySet Name="tbminhchungchitiet" EntityType="Self.tbminhchungchitiet" />
+          <EntitySet Name="tbtieuchi" EntityType="Self.tbtieuchi" />
+          <EntitySet Name="tbtieuchuan" EntityType="Self.tbtieuchuan" />
+          <EntitySet Name="tbvanbantheodonvi" EntityType="Self.tbvanbantheodonvi" />
+          <EntitySet Name="tbvanbantheolinhvuc" EntityType="Self.tbvanbantheolinhvuc" />
+          <EntitySet Name="tbvanban_kehoach" EntityType="SQAModel.tbvanban_kehoach" />
+          <EntitySet Name="tbctdt" EntityType="SQAModel.tbctdt" />
+          <EntitySet Name="tbnamhoc" EntityType="SQAModel.tbnamhoc" />
+          <EntitySet Name="tbphongban" EntityType="SQAModel.tbphongban" />
+          <EntitySet Name="sysdiagrams" EntityType="SQAModel.sysdiagrams" />
+          <AssociationSet Name="FK_tbvanbantheodonvi_tbphongban" Association="SQAModel.FK_tbvanbantheodonvi_tbphongban">
+            <End Role="tbphongban" EntitySet="tbphongban" />
+            <End Role="tbvanbantheodonvi" EntitySet="tbvanbantheodonvi" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="tbvanban_kehoach">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="loaivanban" Type="Int32" />
+          <Property Name="sovanban" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="tenvanban" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="noibanhanh" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="nguoinhap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ngaynhap" Type="DateTime" Precision="3" />
+          <Property Name="ghihu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="file_vanban" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbctdt">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="mactdt" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="tenctdt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="khoaquanly" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="filectdt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ghichu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbnamhoc">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="namhoc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbphongban">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tenphongban" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbvanbantheodonvi" Relationship="SQAModel.FK_tbvanbantheodonvi_tbphongban" FromRole="tbphongban" ToRole="tbvanbantheodonvi" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_tbvanbantheodonvi_tbphongban">
+          <End Type="SQAModel.tbphongban" Role="tbphongban" Multiplicity="0..1" />
+          <End Type="SQAModel.tbvanbantheodonvi" Role="tbvanbantheodonvi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbphongban">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbvanbantheodonvi">
+              <PropertyRef Name="maphongban" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SQAModelStoreContainer" CdmEntityContainer="SQAEntities">
+          <EntitySetMapping Name="tblProducts">
+            <EntityTypeMapping TypeName="SQAModel.tblProducts">
+              <MappingFragment StoreEntitySet="tblProducts">
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProductDesc" ColumnName="ProductDesc" />
+                <ScalarProperty Name="ProductImage" ColumnName="ProductImage" />
+                <ScalarProperty Name="OnDate" ColumnName="OnDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbminhchung">
+            <EntityTypeMapping TypeName="SQAModel.tbminhchung">
+              <MappingFragment StoreEntitySet="tbminhchung">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="tieuchi" ColumnName="tieuchi" />
+                <ScalarProperty Name="maminhchung" ColumnName="maminhchung" />
+                <ScalarProperty Name="tenminhchung" ColumnName="tenminhchung" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbminhchungchitiet">
+            <EntityTypeMapping TypeName="SQAModel.tbminhchungchitiet">
+              <MappingFragment StoreEntitySet="tbminhchungchitiet">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="minhchung" ColumnName="minhchung" />
+                <ScalarProperty Name="tenvanban" ColumnName="tenvanban" />
+                <ScalarProperty Name="motavanban" ColumnName="motavanban" />
+                <ScalarProperty Name="file_vanban" ColumnName="file_vanban" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbtieuchi">
+            <EntityTypeMapping TypeName="SQAModel.tbtieuchi">
+              <MappingFragment StoreEntitySet="tbtieuchi">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="tieuchuan" ColumnName="tieuchuan" />
+                <ScalarProperty Name="sotieuchi" ColumnName="sotieuchi" />
+                <ScalarProperty Name="tentieuchi" ColumnName="tentieuchi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbtieuchuan">
+            <EntityTypeMapping TypeName="SQAModel.tbtieuchuan">
+              <MappingFragment StoreEntitySet="tbtieuchuan">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="sotieuchuan" ColumnName="sotieuchuan" />
+                <ScalarProperty Name="tentieuchuan" ColumnName="tentieuchuan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbvanbantheodonvi">
+            <EntityTypeMapping TypeName="SQAModel.tbvanbantheodonvi">
+              <MappingFragment StoreEntitySet="tbvanbantheodonvi">
+                <ScalarProperty Name="maphongban" ColumnName="maphongban" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="tenvanban" ColumnName="tenvanban" />
+                <ScalarProperty Name="soquyetdinh" ColumnName="soquyetdinh" />
+                <ScalarProperty Name="noibanhanh" ColumnName="noibanhanh" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="fileattach1" ColumnName="fileattach1" />
+                <ScalarProperty Name="fileattach2" ColumnName="fileattach2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbvanbantheolinhvuc">
+            <EntityTypeMapping TypeName="SQAModel.tbvanbantheolinhvuc">
+              <MappingFragment StoreEntitySet="tbvanbantheolinhvuc">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="tenvanban" ColumnName="tenvanban" />
+                <ScalarProperty Name="soquyetdinh" ColumnName="soquyetdinh" />
+                <ScalarProperty Name="noibanhanh" ColumnName="noibanhanh" />
+                <ScalarProperty Name="mota" ColumnName="mota" />
+                <ScalarProperty Name="fileattach1" ColumnName="fileattach1" />
+                <ScalarProperty Name="fileattach2" ColumnName="fileattach2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbvanban_kehoach">
+            <EntityTypeMapping TypeName="SQAModel.tbvanban_kehoach">
+              <MappingFragment StoreEntitySet="tbvanban_kehoach">
+                <ScalarProperty Name="file_vanban" ColumnName="file_vanban" />
+                <ScalarProperty Name="ghihu" ColumnName="ghihu" />
+                <ScalarProperty Name="ngaynhap" ColumnName="ngaynhap" />
+                <ScalarProperty Name="nguoinhap" ColumnName="nguoinhap" />
+                <ScalarProperty Name="noibanhanh" ColumnName="noibanhanh" />
+                <ScalarProperty Name="tenvanban" ColumnName="tenvanban" />
+                <ScalarProperty Name="sovanban" ColumnName="sovanban" />
+                <ScalarProperty Name="loaivanban" ColumnName="loaivanban" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbctdt">
+            <EntityTypeMapping TypeName="SQAModel.tbctdt">
+              <MappingFragment StoreEntitySet="tbctdt">
+                <ScalarProperty Name="ghichu" ColumnName="ghichu" />
+                <ScalarProperty Name="filectdt" ColumnName="filectdt" />
+                <ScalarProperty Name="khoaquanly" ColumnName="khoaquanly" />
+                <ScalarProperty Name="tenctdt" ColumnName="tenctdt" />
+                <ScalarProperty Name="mactdt" ColumnName="mactdt" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbnamhoc">
+            <EntityTypeMapping TypeName="SQAModel.tbnamhoc">
+              <MappingFragment StoreEntitySet="tbnamhoc">
+                <ScalarProperty Name="namhoc" ColumnName="namhoc" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbphongban">
+            <EntityTypeMapping TypeName="SQAModel.tbphongban">
+              <MappingFragment StoreEntitySet="tbphongban">
+                <ScalarProperty Name="tenphongban" ColumnName="tenphongban" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="SQAModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

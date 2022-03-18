@@ -1,0 +1,58 @@
+﻿@model sqa.Models.tbctdt
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tbctdt</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.mactdt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mactdt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tenctdt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tenctdt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.khoaquanly)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.khoaquanly)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.filectdt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.filectdt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ghichu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ghichu)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
